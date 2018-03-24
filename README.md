@@ -1,14 +1,12 @@
 # Data Communications (CO250): Mini-Project
-
-## Title:
+## BINARY AMPLITUDE SHIFT KEYING
+### Statement:
 Performance analysis of state-of-the-art Digital-to-Analog Conversion techniques using Binary Amplitude Shift Keying (BASK).
  
 ## Members:
-
-Palak Singhal(16CO129)  smarty1palak@gmail.com
-Govind Jeevan(16CO221)  govindjeevan7@gmail.com
-Prasanth Sagar(16CO225) kpsagar1999@gmail.com
-
+ - Palak Singhal(16CO129)  smarty1palak@gmail.com 
+ - Govind Jeevan(16CO221) govindjeevan7@gmail.com 
+ - Prasanth Sagar(16CO225) kpsagar1999@gmail.com
 ## Abstract
 With the increasing demand in communication, it has become necessary to give better and efficient service to users by using better technique.
 Modulation and Demodulation is a key feature in wireless communication for data transmission.Digital modulation represents the transfer of digital bit stream from the transmitter to the receiver via the analog channels in an easy way. Digital modulation techniques play an efficient role in performing modulation process. Demodulation is the inverse operation of modulation performed to retrieve the original data signal. 
