@@ -2,9 +2,7 @@
 ##  INTRODUCTION
 
 Amplitude Shift Keying (ASK) is a type of Amplitude Modulation which represents the binary data in the form of variations in the amplitude of a signal.
-
 Any modulated signal has a high frequency carrier. The binary signal when ASK modulated, gives a zero value for Low input while it gives the carrier output for High Input.
-
 The following figure represents ASK modulated waveform along with its input.
 
 ![](https://lh6.googleusercontent.com/Vcbvbc3XjfMAXvHfYArb44MYmh_Y3qkSv3RVcxYdVgd5KZYJNHXXmTj2w4Yndgk5E7L7YZTFjj_64ZH2F531A32uBuPPKUUHwnIbEA-b28jYrfYZIByql7-w8Nv7U6iRbGCewBgX)
