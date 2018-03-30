@@ -23,6 +23,7 @@ If time permits we would like to do other types of shift keying like Phase and F
 * Analyzing its performance in presence of noise specifically speaking Additive White Gaussian Noise (AWGN) with fading and Rayleigh fading d in the channel.
 * Evaluate the Bit Error Rate.(The bit error rate (BER), or perhaps more appropriately the bit error ratio, is the number of bits received in error divided by the total number of bits transferred.)
 * We can estimate the BER by calculating the probability that a bit will be incorrectly received due to noise.(Ideally, we would like to get the lowest bit error rate while spending the smallest amount of energy for transmitting a bit and have the ability to simultaneously transmit at the highest possible data rate in the given bandwidth.)
+* Compare BER for Multi Amplitude Shift Keying and Binary Amplitude Shift Keying.
 * If time permits we would like to do other types of shift keying like Phase and Frequency and present a comparative study of all the modulating techniques with respect to performance in presence of different kinds of noises in the channel and varying bandwidths.
 
 ## Refrence

@@ -1,9 +1,9 @@
 # BINARY AMPLITUDE SHIFT KEYING
 ##  IMPLEMENTATION DESIGN
 
-In MATLAB Simulation of Amplitude Shift Keying (ASK), the user is asked about the frequency of the carrier wave, binary message periodic pulse & the amplitude of the waves (considering both square message wave & carrier wave have equal amplitude).
+In MATLAB Simulation of Amplitude Shift Keying (ASK), the user is asked about the frequency of the carrier wave, binary or multilevel message periodic pulse & the amplitude of the waves (considering both square message wave & carrier wave have equal amplitude).
 
-The MATLAB code lets the user to plot 3 graphs, namely of The Carrier Wave (Sinusoid), The Binary Message Pulse & The Amplitude Shift Keyed Wave.
+The MATLAB code lets the user to plot 3 graphs, namely of The Carrier Wave (Sinusoid), The Binary or Multilevel Message Pulse & The Amplitude Shift Keyed Wave.
 
   
 ![](https://lh5.googleusercontent.com/_m73EN48Peswided_abCGbH4Nv-AxdC1tPpxpDoRzWMjjafpaHRF6ehWGbdYLJPoVHKAga54u4e13XhHFHHLTMIDwbD4nzt9Rh9EkzzXfpLEOJDuec0W2rXXcek1LDZ65kbFr1Mg)
@@ -29,7 +29,7 @@ The probability density function of having an error of a given size can be model
 
 ![](https://lh5.googleusercontent.com/maYr4zPQeN2VbHUbgESBp9ZOUTlFUy7WDw9YHZQvxPFG30iATR89GQsQYRze9hEU7NJt8-N35LJWGc4GjgzZhTROECwsIqdLCWU-UEYqp9SXeGNi4Ncertjln_D4f9l5zG_db22u) is the spectral density of the noise within the band and Hr (f) is the continuous Fourier transform of the impulse response of the filter hr (f).
 
-Along with implementing the algorithm in MATLAB and analysing it’s performance, We will try and implement the BASK circuit in a simulation tool such as proteus or Logisim.
+Along with implementing the algorithm in MATLAB and analysing it’s performance, We will try and implement the BASK or MASK circuit in a simulation tool such as proteus or Logisim.
 
 Amplitude Shift Keying modulation and demodulation processes are relatively inexpensive and easy to implement. The main disadvantage of ASK is that it is sensitive to atmospheric noise, distortions and propagation conditions. Here is the practical circuit diagram of amplitude shift keying modulator using CD4016 IC. CD4016 is a switching IC with four embedded switches
 
