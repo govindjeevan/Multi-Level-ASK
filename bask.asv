@@ -7,7 +7,7 @@ Percentage = [];
 global bp
 global ss;
 global f;
-maxlength=9;
+maxlength=10
 
 for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
     x = de2bi(l)       % MESSAGE SIGNAL GENERATED
@@ -46,7 +46,7 @@ function output=bask(x)
     xlabel(' time(sec)');
     title('transmitting information as digital signal');
 
-    m=binary_modulator(10,5,x);
+    m=binary_modulator(10,5,x;
 
     t3=bp/99:bp/99:bp*length(x);
     subplot(5,1,2);
@@ -131,7 +131,7 @@ function mn=binary_demodulator(m)
     global f;
     global bp;
     mn=[];
-    for n=ss:ss:length(m)
+    for n=ss:ss:length(m);
 
       t=bp/99:bp/99:bp;
       y=cos(2*pi*f*t);
@@ -154,7 +154,7 @@ end
 function bit = binary_to_digital(mn)
     bit=[];
     for n=1:length(mn)
-        if mn(n)==1
+        if mn(n)==1;
            se=ones(1,100);
         else mn(n)==0;
             se=zeros(1,100);
