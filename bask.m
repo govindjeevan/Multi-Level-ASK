@@ -9,10 +9,7 @@ global ss;
 global f;
 maxlength=5
 
-for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
-    x = de2bi(l)       % MESSAGE SIGNAL GENERATED
-    bask(x);           % PERFORMING BINARY AMPLITUDE SHIFT KEYING
-end
+bask([1 0 1 1 0 0 1])
 
  
 
@@ -38,9 +35,8 @@ function output=bask(x)
     %XX representation of transmitting binary information as digital signal XXX
     bit = binary_to_digital(x);
 
-
     t1=bp/100:bp/100:100*length(x)*(bp/100);
-    subplot(4,1,1);
+    subplot(5,1,1);
     plot(t1,bit,'lineWidth',2.5);grid on;
     axis([ 0 bp*length(x) -.5 1.5]);
     ylabel('amplitude(volt)');
@@ -50,19 +46,25 @@ function output=bask(x)
     m=binary_modulator(10,5,x)
 
     t3=bp/99:bp/99:bp*length(x);
-    subplot(4,1,2);
+    subplot(5,1,2);
     plot(t3,m);
     xlabel('time(sec)');
     ylabel('amplitude(volt)');
     title('waveform for binary ASK modulation coresponding binary information');
 
-    m = noise_generator(10, m)
+    [m,n] = noise_generator(4, m)
 
-    subplot(4,1,3);
+    subplot(5,1,3);
+    plot(t3,n);
+    xlabel('time');
+    ylabel('Noise Amplitude');
+    title('Noise Signal');
+    
+    subplot(5,1,4);
     plot(t3,m);
     xlabel('time');
     ylabel('amplitude');
-    title('noise Added');
+    title('Received Signal');
 
 
     mn=binary_demodulator(m)
@@ -72,7 +74,7 @@ function output=bask(x)
     bit = binary_to_digital(mn)
 
     t4=bp/100:bp/100:100*length(mn)*(bp/100);
-    subplot(4,1,4);
+    subplot(5,1,5);
     plot(t4,bit,'LineWidth',2.5);grid on;
     axis([ 0 bp*length(mn) -.5 1.5]);
     ylabel('amplitude(volt)');
@@ -107,18 +109,13 @@ function m = binary_modulator(A1,A2,x)
         m=[m y];
     end
 
-    t3=bp/99:bp/99:bp*length(x);
-    plot(t3,m);
-    xlabel('time(sec)');
-    ylabel('amplitude(volt)');
-    title('waveform for binary ASK modulation coresponding binary information');
 end 
 
 
 
 %XXXXXXXXXXXXXXXXXXXXXXX NOISE INTRODUCTION XXXXXXXXXXXXXXXXXXXXXXXXXXX%
 
-function m = noise_generator(A, x)
+function [m,r] = noise_generator(A, x)
     % A Amplitude of Noise
     r=A*randn(1,length(x));
     m=x+r;
