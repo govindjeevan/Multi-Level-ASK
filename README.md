@@ -26,6 +26,17 @@ If time permits we would like to do other types of shift keying like Phase and F
 * Compare BER for Multi Amplitude Shift Keying and Binary Amplitude Shift Keying.
 * If time permits we would like to do other types of shift keying like Phase and Frequency and present a comparative study of all the modulating techniques with respect to performance in presence of different kinds of noises in the channel and varying bandwidths.
 
+## RESULTS
+### Progress I
+**Binary Amplitude Shift Keying for [ 1 0 1 1 0 0 1]**
+
+![enter image description here](https://image.ibb.co/kmKowc/bask.png)
+
+
+**Performance Analysis of Binary Amplitude Shift Keying**
+![enter image description here](https://image.ibb.co/ek3v9x/BASK_Performance.png)
+
+
 ## Refrence
 
     http://ieeexplore.ieee.org/document/7888028/
