@@ -1,4 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        CO250-MINI PROJECT
 
 %Performance analysis of state-of-the-art Digital-to-Analog Conversion
@@ -15,12 +14,14 @@
 
 %XXXXXXXXXXXXXXXXXXXXXXX NOISE INTRODUCTION XXXXXXXXXXXXXXXXXXXXXXXXXXX%
 
-function m = noise_generator(A, x)
+function [m,r] = noise_generator(A, x)
     % A Amplitude of Noise
-    %To introduce noise in our modulated carrier signal we add the random value
-    %to the signal and assign it to m(the modulated signal)
     r=A*randn(1,length(x));
     m=x+r;
+    %To introduce noise in our modulated carrier signal we add the random value
+    %to the signal and assign it to m(the modulated signal)
+
+end
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

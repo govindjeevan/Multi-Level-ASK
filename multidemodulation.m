@@ -1,25 +1,9 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%                        CO250-MINI PROJECT
-
-%Performance analysis of state-of-the-art Digital-to-Analog Conversion
-%techniques using Binary Amplitude Shift Keying (BASK) and Multi Amplitude
-%Shift Keying 
-
-%MEMBERS:
-%1. PALAK SINGHAL  16CO129
-%2. GOVIND JEEVAN  16CO221
-%3. PRASANTH SAGAR 16CO225
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- 
-%                        Multilevel ASK Demodulation
-
 clc;
 clear all;
 close all;
 
 
-x=[ 1 0 2 1 0 2 1];                                    % Multilevel Information
+x=[ 1 0 2 1 0 2 1];                                    % Binary Information
 bp=.000001;                                                    % bit period
 disp(' Multiamplitude information at Trans mitter :');
 %disp(x);

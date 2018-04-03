@@ -29,7 +29,6 @@ function mn=binary_demodulator(m)
       t4=bp/99:bp/99:bp;
       %trapezoidal integration of the above term with respect to the time period t4
       z=trapz(t4,mm);
-      2*z/bp;       % intregation 
       %on integration we can ignore the term with sin component as sine can range only from -1 to 1 and further it gets divided by 4*pi*f which gives an extremely small value
       zz=round((2*z/bp));
       %logic level (A1+A2)/2=7.5

@@ -21,6 +21,7 @@ function m = binary_modulator(A1,A2,x)
 
 global bp;
 global ss;
+global f;
 br=1/bp;                                                         % bit rate
 f=br*10;                                                 % carrier frequency 
 t2=bp/99:bp/99:bp;                                       % time period to transmit one bit of information
@@ -40,16 +41,7 @@ for (i=1:1:length(x))
     m=[m y];
 end
 
-%total time for which the signal exists
-t3=bp/99:bp/99:bp*length(x);
-
-%plotting the modulated signal vs time
-plot(t3,m);
-xlabel('time(sec)');
-ylabel('amplitude(volt)');
-title('waveform for binary ASK modulation coresponding binary information');
 end 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
