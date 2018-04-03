@@ -11,19 +11,22 @@
 %3. PRASANTH SAGAR 16CO225
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%XXXXXXXXXXXXXXXXXXXXXXX Binary-ASK modulation XXXXXXXXXXXXXXXXXXXXXXXXXXX%
+
+%                          Binary-ASK modulation 
 
 function m = binary_modulator(A1,A2,x)
 % A1 Amplitude of carrier signal for information 1
 % A2 Amplitude of carrier signal for information 0
 % x Message signal
+
 global bp;
 global ss;
 br=1/bp;                                                         % bit rate
 f=br*10;                                                 % carrier frequency 
-t2=bp/99:bp/99:bp;                 
-ss=length(t2);
-m=[];
+t2=bp/99:bp/99:bp;                                       % time period to transmit one bit of information
+ss=length(t2);                                           %length of time period
+m=[];                                                    %matrix to store the modulated signal
+
 %the loop runs for the length of the message where each iteration of the
 %loop adds an array of elements which gives the analog signal for time
 %period t2 based on the message signal by imposing it on the carroier
@@ -37,11 +40,16 @@ for (i=1:1:length(x))
     m=[m y];
 end
 
+%total time for which the signal exists
 t3=bp/99:bp/99:bp*length(x);
+
+%plotting the modulated signal vs time
 plot(t3,m);
 xlabel('time(sec)');
 ylabel('amplitude(volt)');
 title('waveform for binary ASK modulation coresponding binary information');
 end 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
