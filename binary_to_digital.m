@@ -11,6 +11,9 @@
 %3. PRASANTH SAGAR 16CO225
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%                       Binary to Digital Signal
+
 function bit = binary_to_digital(mn)
 %Conversion of binary message to a binary signal
 %Definign an empty array called bit
@@ -29,3 +32,5 @@ function bit = binary_to_digital(mn)
     end
 
 end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
