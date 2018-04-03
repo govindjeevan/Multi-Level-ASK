@@ -44,6 +44,7 @@ If time permits we would like to do other types of shift keying like Phase and F
 ## File Structure
 * Introduction.md (Explains theoretical aspects of the mini project)
 * Design.md  (Explains design aspects of the mini project) 
+* bask.m (Main file)
 * binarymodulation.m (Modulation for binary message)
 * binarydemodulation.m (Demodualation for binary message)
 * multimodulation.m (Modulation for multi amplitude message)
