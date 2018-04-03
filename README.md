@@ -43,11 +43,18 @@ If time permits we would like to do other types of shift keying like Phase and F
 
 ## File Structure
 * Introduction.md (Explains theoretical aspects of the mini project)
-* Design.md  (Explains design aspects of the mini project) 
-* noise_generator(generates noise)
-* binary_ to _digital(converts binary to digital signal )
-* binary_modulator.m (Modulation for binary message)
-* binary_demodulator.m (Demodualation for binary message)
+* Design.md  (Explains design aspects of the mini project)
+
+* bask.m (MAIN FILE)  run this to modulate a signal, add noise and then demodulate and calculate percentage error
+
+### Functions used in bask.m
+
+* noise_generator.m (generates noise)(A function used in main file i.e bask.m)
+* binary_ to _digital.m (converts binary information to digital signal )(A function used in main file i.e bask.m)
+* binary_modulator.m (Modulation for binary message)(A function used in main file i.e bask.m)
+* binary_demodulator.m (Demodualation for binary message)(A function used in main file i.e bask.m)
+
+### Multilevel modulation and demodulation
+
 * multimodulation.m (Modulation for multi amplitude message)
 * multidemodulatiion.m (Demodulation for multi amplitude message)
-* bask.m (Main file)(Modulation Demodulation by adding noise and calculated percentage average error in bits(BER))
