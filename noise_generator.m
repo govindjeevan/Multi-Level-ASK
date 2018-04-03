@@ -22,6 +22,5 @@ function [m,r] = noise_generator(A, x)
     %to the signal and assign it to m(the modulated signal)
 
 end
-end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
