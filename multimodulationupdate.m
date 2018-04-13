@@ -1,10 +1,10 @@
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %                        CO250-MINI PROJECT
 
 %Performance analysis of state-of-the-art Digital-to-Analog Conversion
 %techniques using Binary Amplitude Shift Keying (BASK) and Multi Amplitude
 %Shift Keying 
+%Here we are trying to multiple amplitude shift keying by entering a base and an array of values according to the base
 
 %MEMBERS:
 %1. PALAK SINGHAL  16CO129
