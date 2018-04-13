@@ -1,9 +1,28 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                        CO250-MINI PROJECT
+
+%Performance analysis of state-of-the-art Digital-to-Analog Conversion
+%techniques using Binary Amplitude Shift Keying (BASK) and Multi Amplitude
+%Shift Keying 
+
+%MEMBERS:
+%1. PALAK SINGHAL  16CO129
+%2. GOVIND JEEVAN  16CO221
+%3. PRASANTH SAGAR 16CO225
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc;
+clear all;
+close all;
+%
+
 %multimodulation update
 
  % Multi level Information
 %x=[ 2 1 0 1 2 0 1];   
 
-disp('Enter the base for multi modulation')
+disp('Enter the base for multi modulation :');
 
 x=input(prompt)                                
 % Bit period(time taken to transmit a bit)
