@@ -8,8 +8,8 @@ global bp
 global ss;
 global f;
 global t3;
-x=[ 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 1]
- global m;
+x=[ 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 1];
+global m;
 bask(x);
 
 
@@ -36,9 +36,8 @@ global t3;
     ylabel('amplitude(volt)');
     xlabel(' time(sec)');
     title('transmitting information as digital signal');
-    A=[5 15 25 41];
+    A=[0 1 2 3 4 5 6 7];
     m=binary_modulator(A,x);
-
 
     t3=bp/99:bp/99:bp*length(x)/log2(length(A));
     subplot(5,1,2);
@@ -46,7 +45,16 @@ global t3;
     xlabel('time(sec)');
     ylabel('amplitude(volt)');
     title('waveform for binary ASK modulation coresponding binary information');
+    
+    
+    [m,n] = noise_generator(10, m);
 
+    subplot(5,1,3);
+    plot(t3,n);
+    xlabel('time');
+    ylabel('Noise Amplitude');
+    title('Noise Signal');
+    
 
 end
 
@@ -76,8 +84,7 @@ signalbits=log2(levels)
 
 for (i=1:signalbits:length(x))
     
-    bits=x(i:i+signalbits-1)
-    i
+    bits=x(i:i+signalbits-1);
     bits=bi2de(bits,'left-msb');
     y=A(bits+1)*cos(2*pi*f*t2);  
 
@@ -107,4 +114,22 @@ function bit = binary_to_digital(mn)
     end
 
 end
+
+
+
+
+
+
+
+%XXXXXXXXXXXXXXXXXXXXXXX NOISE INTRODUCTION XXXXXXXXXXXXXXXXXXXXXXXXXXX%
+
+function [m,r] = noise_generator(A, x)
+    % A Amplitude of Noise
+    r=A*randn(1,length(x));
+    m=x+r;
+    %To introduce noise in our modulated carrier signal we add the random value
+    %to the signal and assign it to m(the modulated signal)
+
+end
+
 

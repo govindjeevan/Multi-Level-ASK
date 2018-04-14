@@ -7,9 +7,9 @@ Percentage = [];
 global bp
 global ss;
 global f;
-
-x=[ 1 1 1 0 0 1 1 0 1 0 0 1]
- 
+global t3;
+    x=[ 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 1]
+ global m;
 bask(x);
 
 
@@ -20,7 +20,8 @@ function output=bask(x)
     global ss;
     global f;
     global Percentage;
-
+global m;
+global t3;
     bp=.000001;                                                    % bit period
     disp(' Binary information at Trans mitter :');
     disp(x);
@@ -35,16 +36,15 @@ function output=bask(x)
     ylabel('amplitude(volt)');
     xlabel(' time(sec)');
     title('transmitting information as digital signal');
-    A=[10 5];
+    A=[0 1 2 3 4 5 6 7];
     m=binary_modulator(A,x);
 
-    t3=bp/99:bp/99:bp*length(x);
+    t3=bp/99:bp/99:bp*length(x)/log2(length(A));
     subplot(5,1,2);
     plot(t3,m);
     xlabel('time(sec)');
     ylabel('amplitude(volt)');
     title('waveform for binary ASK modulation coresponding binary information');
-
 
 end
 
@@ -69,14 +69,17 @@ t2=bp/99:bp/99:bp;                                       % time period to transm
 ss=length(t2);                                           %length of time period
 m=[];                                                    %matrix to store the modulated signal
 
+levels=length(A)
+signalbits=log2(levels)
 
-for (i=1:1:length(x))
-    if (x(i)==1)
-        y=A(1)*cos(2*pi*f*t2);  
-    else
-        y=A(2)*cos(2*pi*f*t2);
-    end
+for (i=1:signalbits:length(x))
+    
+    bits=x(i:i+signalbits-1);
+    bits=bi2de(bits,'left-msb');
+    y=A(bits+1)*cos(2*pi*f*t2);  
+
     m=[m y];
+    
 end
 
 
