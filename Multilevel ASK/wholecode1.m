@@ -10,6 +10,8 @@ global f;
 global t3;
 x=[ 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 1];
 global m;
+global mn;
+global t4;
 bask(x);
 
 
@@ -20,8 +22,8 @@ function output=bask(x)
     global ss;
     global f;
     global Percentage;
-global m;
-global t3;
+global mn;
+global t4;
     bp=.000001;                                                    % bit period
     disp(' Binary information at Trans mitter :');
     disp(x);
@@ -36,7 +38,7 @@ global t3;
     ylabel('amplitude(volt)');
     xlabel(' time(sec)');
     title('transmitting information as digital signal');
-    A=[0 1 2 3 4 5 6 7];
+    A=[0 1 2 3];
     m=binary_modulator(A,x);
 
     t3=bp/99:bp/99:bp*length(x)/log2(length(A));
@@ -47,7 +49,7 @@ global t3;
     title('waveform for binary ASK modulation coresponding binary information');
     
     
-    [m,n] = noise_generator(10, m);
+    [m,n] = noise_generator(4, m);
 
     subplot(5,1,3);
     plot(t3,n);
@@ -55,7 +57,28 @@ global t3;
     ylabel('Noise Amplitude');
     title('Noise Signal');
     
+    subplot(5,1,4);
+    plot(t3,m);
+    xlabel('time');
+    ylabel('amplitude');
+    title('Received Signal');
+    
+    mn=binary_demodulator(A, m);
+    
+    
+    %XXXXX Representation of binary information as digital signal which achived 
+    %after ASK demodulation XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    bit = binary_to_digital(mn);
 
+    t4=bp/100:bp/100:100*length(mn)*(bp/100);
+    subplot(5,1,5);
+    plot(t4,bit,'LineWidth',2.5);grid on;
+    axis([ 0 bp*length(mn) -.5 1.5]);
+    ylabel('amplitude(volt)');
+    xlabel(' time(sec)');
+    title('recived information as digital signal after binary ASK demodulation');
+
+    Percentage=[Percentage, sum(xor(mn,x))/length(x)*100]
 end
 
 
@@ -132,4 +155,37 @@ function [m,r] = noise_generator(A, x)
 
 end
 
+
+%XXXXXXXXXXXXXXXXXXXX Binary ASK demodulation XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+function mn=binary_demodulator(A, m)
+    global ss;
+    global f;
+    global bp;
+    mn=[];
+    %looping from start of time till the end of the signal and incrementing in units of the time period for 1 bit of information
+    for n=ss:ss:length(m);
+      %dot multiplication of the carrier signal with the 100 successive elemnts of the matrix m which represents the modulated signal
+      %mathematically it will give (A1orA2)cos^2(2*pi*f*t) 
+      t=bp/99:bp/99:bp;
+      y=cos(2*pi*f*t);
+      % carrier signal
+      mm=y.*m((n-(ss-1)):n);
+      t4=bp/99:bp/99:bp;
+      %trapezoidal integration of the above term with respect to the time period t4
+      z=trapz(t4,mm);
+      %on integration we can ignore the term with sin component as sine can range only from -1 to 1 and further it gets divided by 4*pi*f which gives an extremely small value
+      zz=round((2*z/bp));
+      %logic level (A1+A2)/2=7.5
+      %If the amplitude of the modulated wave is greater than 7.5 it means the priginal message bit was a 1 otherwise it was a 0           
+
+      [minDistance, indexOfMin] = min(abs(A-zz));
+      mn=[mn A(indexOfMin)];
+end
+w=[];
+for i=1:1:length(mn)
+    x1=de2bi(mn(i), log2(length(A)), 'left-msb');
+    w= [w x1];
+end
+mn=w;
+end
 
