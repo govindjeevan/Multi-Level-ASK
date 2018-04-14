@@ -8,12 +8,19 @@ global bp
 global ss;
 global f;
 global t3;
-x=[ 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 1];
 global m;
 global mn;
 global t4;
-bask(x);
+global A;
+A=[0 1 2 3];
 
+x=[ 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 1];
+
+
+for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
+    x = de2bi(l)       % MESSAGE SIGNAL GENERATED
+    bask(x);           % PERFORMING BINARY AMPLITUDE SHIFT KEYING
+end
 
 
 % BINARY AMPLITUDE SHIFT KEYING
@@ -22,6 +29,7 @@ function output=bask(x)
     global ss;
     global f;
     global Percentage;
+    global A;
 global mn;
 global t4;
     bp=.000001;                                                    % bit period
@@ -38,7 +46,7 @@ global t4;
     ylabel('amplitude(volt)');
     xlabel(' time(sec)');
     title('transmitting information as digital signal');
-    A=[0 1 2 3];
+
     m=binary_modulator(A,x);
 
     t3=bp/99:bp/99:bp*length(x)/log2(length(A));
@@ -49,7 +57,7 @@ global t4;
     title('waveform for binary ASK modulation coresponding binary information');
     
     
-    [m,n] = noise_generator(4, m);
+    [m,n] = noise_generator(1, m);
 
     subplot(5,1,3);
     plot(t3,n);
