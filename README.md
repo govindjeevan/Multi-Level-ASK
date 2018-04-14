@@ -42,10 +42,5 @@ If time permits we would like to do other types of shift keying like Phase and F
     http://ieeexplore.ieee.org/document/7888028/
 
 ## File Structure
-* Introduction.md (Explains theoretical aspects of the mini project)
-* Design.md  (Explains design aspects of the mini project) 
-* binarymodulation.m (Modulation for binary message)
-* binarydemodulation.m (Demodualation for binary message)
-* multimodulation.m (Modulation for multi amplitude message)
-* multidemodulatiion.m (Demodulation for multi amplitude message)
-* mdem.m (Modulation Demodulation by adding noise and calculated percentage average error in bits(BER))
+![enter image description here](https://image.ibb.co/eq0j2H/Function_Sequence.png)
+
