@@ -14,15 +14,12 @@
 
 %XXXXXXXXXXXXXXXXXXXXXXX NOISE INTRODUCTION XXXXXXXXXXXXXXXXXXXXXXXXXXX%
 
-function [m,r] = noise_generator(A, x)
+function [m,y] = awgn1(A,x)
     % A Amplitude of Noise
+   y = awgn(x,10,'measured');
     %r=A*randn(1,length(x));
-    r=A*randn(1,length(x));
-    m=x+r;
-   
+   m=x+y;
     %To introduce noise in our modulated carrier signal we add the random value
     %to the signal and assign it to m(the modulated signal)
 
 end
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

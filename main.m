@@ -16,13 +16,15 @@
 clc;
 close all;
 global Percentage 
+global Percentage1
 Percentage = [];
+Percentage1 = [];
 
 global bp
 global ss;
 global f;
 %maximum length of the message
-maxlength=9;
+maxlength=4;
 
 for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
     x = de2bi(l)       % MESSAGE SIGNAL GENERATED
@@ -37,3 +39,4 @@ plot(len, Percentage)
 
 %calculating the average error detection for BASK
 mean(Percentage)
+mean(Percentage1)
