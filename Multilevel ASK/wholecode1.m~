@@ -12,7 +12,7 @@ global mn;
 global t4;
 global A;
 
-A=[];
+
 maxpower=3;
 for i=1:maxpower
     for j=2:1:2^(i)+1
@@ -23,10 +23,10 @@ for i=1:maxpower
 
     for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
     x = de2bi(l, 'left-msb');      % MESSAGE SIGNAL GENERATED
-    x=bitNumber(x);
+    x=bitNumber(x)
     bask(x);           % PERFORMING BINARY AMPLITUDE SHIFT KEYING
     end
-end
+
 %Plottting length of message vs percentage error detection based on no of bits transmitted correctly
 len=1:length(Percentage);
 figure
@@ -138,7 +138,7 @@ signalbits=log2(levels);
 for (i=1:signalbits:length(x))
     
     bits=x(i:i+signalbits-1);
-    bits=bi2de(bits,'left-msb');
+    bits=bi2de(bits,'left-msb')
     y=A(bits+1)*cos(2*pi*f*t2);  
 
     m=[m y];
@@ -215,6 +215,8 @@ function mn=binary_demodulator(A, m)
     end
 w=[];
 for i=1:1:length(mn)
+    i
+    mn(i)
     x1=de2bi(mn(i), log2(length(A)), 'left-msb');
     w= [w x1];
 end
