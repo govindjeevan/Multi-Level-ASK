@@ -22,10 +22,10 @@ global bp
 global ss;
 global f;
 %maximum length of the message
-maxlength=5;
+maxlength=7;
 
 for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
-    x = de2bi(l)       % MESSAGE SIGNAL GENERATED
+    x = de2bi(l, 'left-msb');     % MESSAGE SIGNAL GENERATED
     bask(x);           % PERFORMING BINARY AMPLITUDE SHIFT KEYING
 end
 
@@ -35,7 +35,7 @@ len=1:length(Percentage);
 figure
 plot(len, Percentage) 
 %calculating the average error detection
-mean(Percentage)
+avg=mean(Percentage)
 
 
 

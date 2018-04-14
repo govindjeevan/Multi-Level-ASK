@@ -12,14 +12,31 @@ global m;
 global mn;
 global t4;
 global A;
-A=[0 1 2 3];
+A=[5 10 15 20];
 
-x=[ 1 1 1 0 0 1 1 0 1 0 0 1 0 1 1 1 1 1];
-
+maxlength=7;
 
 for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
-    x = de2bi(l)       % MESSAGE SIGNAL GENERATED
+    x = de2bi(l, 'left-msb');      % MESSAGE SIGNAL GENERATED
+    x=bitNumber(x);
     bask(x);           % PERFORMING BINARY AMPLITUDE SHIFT KEYING
+end
+
+%Plottting length of message vs percentage error detection based on no of bits transmitted correctly
+len=1:length(Percentage);
+figure
+plot(len, Percentage) 
+%calculating the average error detection
+avg=mean(Percentage)
+
+
+function y=bitNumber(x)
+    global A;
+    len=log2(length(A));
+    while mod(length(x),len) ~= 0
+        x=[0 x];
+    end
+    y=x;
 end
 
 
@@ -30,11 +47,11 @@ function output=bask(x)
     global f;
     global Percentage;
     global A;
-global mn;
-global t4;
+    global mn;
+    global t4;
     bp=.000001;                                                    % bit period
-    disp(' Binary information at Trans mitter :');
-    disp(x);
+    %disp(' Binary information at Trans mitter :');
+
 
     %XX representation of transmitting binary information as digital signal XXX
     bit = binary_to_digital(x);
@@ -57,7 +74,7 @@ global t4;
     title('waveform for binary ASK modulation coresponding binary information');
     
     
-    [m,n] = noise_generator(1, m);
+    [m,n] = noise_generator(10, m);
 
     subplot(5,1,3);
     plot(t3,n);
@@ -84,9 +101,9 @@ global t4;
     axis([ 0 bp*length(mn) -.5 1.5]);
     ylabel('amplitude(volt)');
     xlabel(' time(sec)');
-    title('recived information as digital signal after binary ASK demodulation');
+    title('received information as digital signal after binary ASK demodulation');
 
-    Percentage=[Percentage, sum(xor(mn,x))/length(x)*100]
+    Percentage=[Percentage, sum(xor(mn,x))/length(x)*100];
 end
 
 
@@ -110,8 +127,8 @@ t2=bp/99:bp/99:bp;                                       % time period to transm
 ss=length(t2);                                           %length of time period
 m=[];                                                    %matrix to store the modulated signal
 
-levels=length(A)
-signalbits=log2(levels)
+levels=length(A);
+signalbits=log2(levels);
 
 for (i=1:signalbits:length(x))
     
@@ -135,10 +152,12 @@ function bit = binary_to_digital(mn)
 %basis of that we fill a matrix of dimensions 1*100 with that particular
 %value and later adding it to the bit array
     for n=1:length(mn)
-        if mn(n)==1;
+        if mn(n)==1
            se=ones(1,100);
-        else mn(n)==0;
+        else
+            if mn(n)==0
             se=zeros(1,100);
+            end 
         end
          bit=[bit se];
 
@@ -171,7 +190,7 @@ function mn=binary_demodulator(A, m)
     global bp;
     mn=[];
     %looping from start of time till the end of the signal and incrementing in units of the time period for 1 bit of information
-    for n=ss:ss:length(m);
+    for n=ss:ss:length(m)
       %dot multiplication of the carrier signal with the 100 successive elemnts of the matrix m which represents the modulated signal
       %mathematically it will give (A1orA2)cos^2(2*pi*f*t) 
       t=bp/99:bp/99:bp;
@@ -187,10 +206,12 @@ function mn=binary_demodulator(A, m)
       %If the amplitude of the modulated wave is greater than 7.5 it means the priginal message bit was a 1 otherwise it was a 0           
 
       [minDistance, indexOfMin] = min(abs(A-zz));
-      mn=[mn A(indexOfMin)];
-end
+      mn=[mn indexOfMin-1];
+    end
 w=[];
 for i=1:1:length(mn)
+    i
+    mn(i)
     x1=de2bi(mn(i), log2(length(A)), 'left-msb');
     w= [w x1];
 end
