@@ -16,9 +16,10 @@ A=[];
 maxpower=3;
 for i=1:maxpower
     for j=2:1:2^(i)+1
-        A(j-1) =j-1;
+        A(j-1) =5*(j-1);
     end
     A
+    
     maxlength=6;
 
     for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
