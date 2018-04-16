@@ -36,33 +36,27 @@ A=[];
 %Maxpower is the maximum power of two till which the no of amplitude levels
 %can go.
 % a.k.a Max Number of Signal Elements
-maxpower=3;
+maxpower=6;
 
 %Generating amplitude in power of two with values in multiples of 5
-for i=1:maxpower
-    for j=2:1:2^(i)+1
-        A(j-1) =5*(j-1);
-        A
-    end
-    
+
+    A=[5    10    15    20    25    30    35    40]
   
 %Generating relevant messages corresponding to each amplitude matrix  
     maxlength=6;
 
 %bitNumber function stuffs the message with 0's so as to make it relevant to the number of amplitude levels
-    for l=1:2^maxlength   % ALL VALUES FROM 1 BIT TO maxlength BITS
-    x = de2bi(l, 'left-msb');      % MESSAGE SIGNAL GENERATED
+   % ALL VALUES FROM 1 BIT TO maxlength BITS
+
+    x =[1 0 1 1 0 0 1 1 0 0 1 1 0 0]     % MESSAGE SIGNAL GENERATED
     x=bitNumber(x);
     bask(x);           % PERFORMING BINARY AMPLITUDE SHIFT KEYING
-    end
+   
     
 
-    VarAmpPer=[VarAmpPer mean(Percentage)]
-end
+
 %Plottting length of message vs percentage error detection based on no of bits transmitted correctly
-len=1:length(VarAmpPer);
-figure
-plot(len, VarAmpPer) 
+
 %calculating the average error detection
 
 
@@ -119,7 +113,7 @@ function output=bask(x)
     
     
 %creation of noisy signal
-    [m,n] = noise_generator(10, m);
+    [m,n] = noise_generator(20, m);
 
 %plotting the noisy signal
     subplot(5,1,3);
@@ -153,7 +147,7 @@ function output=bask(x)
     title('received information as digital signal after binary ASK demodulation');
 
 %calculating the percentage error in bits (BER)
-    Percentage=[Percentage, sum(xor(mn,x))/length(x)*100];
+    sum(xor(mn,x))/length(x)*100
 end
 
 
