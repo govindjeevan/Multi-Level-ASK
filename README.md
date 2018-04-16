@@ -44,15 +44,15 @@ If time permits we would like to do other types of shift keying like Phase and F
 
 ***Amplitude of noise introduced: 20***
 
- **- Amplitude Levels **[ 5  10 ]****
+ **- Amplitude Levels [ 5  10 ]**
  
  ![enter image description here](https://image.ibb.co/mNzAz7/5_10.jpg)
 
- **- Amplitude Levels **[ 5  10  15  20 ]****
+ **- Amplitude Levels [ 5  10  15  20 ]**
  
  ![enter image description here](https://image.ibb.co/jn4omn/5_10_15_20.jpg)
 
- **- Amplitude Levels **[ 5  10  15  20  25  30  35  40  45 ]****
+ **- Amplitude Levels [ 5  10  15  20  25  30  35  40  45 ]**
  
  ![enter image description here](https://image.ibb.co/fd94Rn/5_10_15_20_40.jpg)
 
