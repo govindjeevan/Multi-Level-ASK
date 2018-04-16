@@ -1,3 +1,4 @@
+
 # Data Communications (CO250): Mini-Project
 ## BINARY AMPLITUDE SHIFT KEYING
 ### Statement:
@@ -35,7 +36,33 @@ If time permits we would like to do other types of shift keying like Phase and F
 
 **Performance Analysis of Binary Amplitude Shift Keying**
 ![enter image description here](https://image.ibb.co/ek3v9x/BASK_Performance.png)
+### Progress II
+***MULTILEVEL AMPLITUDE SHIFT KEYING***
 
+
+**`Message Signal =[1 0 1 1 0 0 1 1 0 0 1 1 0 0]`**
+
+***Amplitude of noise introduced: 20***
+
+ **- Amplitude Levels **[ 5  10 ]****
+ 
+ ![enter image description here](https://image.ibb.co/mNzAz7/5_10.jpg)
+
+ **- Amplitude Levels **[ 5  10  15  20 ]****
+ 
+ ![enter image description here](https://image.ibb.co/jn4omn/5_10_15_20.jpg)
+
+ **- Amplitude Levels **[ 5  10  15  20  25  30  35  40  45 ]****
+ 
+ ![enter image description here](https://image.ibb.co/fd94Rn/5_10_15_20_40.jpg)
+
+The Bit Error Rate is reduced to **6.6667%**
+
+## Comparison of Mean Bit Error Across Multi Levels
+Mean Bit Error for each Multi Level Shift Keying rate is calculated from all possible message signals uptil a length of 6 bits.
+
+
+![enter image description here](https://image.ibb.co/iN9M6n/Multilevel_Comparison.jpg)
 
 ## Refrence
 
